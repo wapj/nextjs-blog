@@ -1,20 +1,28 @@
+import {useState} from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
 import Head from 'next/head';
-import Layout, { siteTitle } from '../components/layout';
-import utilStyles from '../styles/utils.module.css';
 
-export default function Home() {
-  return (
-    <Layout home>
-      <Head>
-        <title>{siteTitle}</title>
-      </Head>
-      <section className={utilStyles.headingMd}>
-        <p>[안녕하세요!]</p>
-        <p>
-          (This is a sample website - you’ll be building a site like this on{' '}
-          <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
-        </p>
-      </section>
-    </Layout>
-  );
+function Header({title}) {
+    return <h1>{title ? title: "default title"}</h1>
+}
+
+
+const Profile = () => (
+    <Image  src={"/images/profile.jpg"} height={144} width={144} alt={"seungkyoo"} />
+)
+
+export default function HomePage() {
+
+
+
+    return (
+        <div>
+            <Header title={"develop. preview. ship. 🚀"} />
+
+            <h1 className="title">
+                Read <Link href={"/posts/first-post"}>this page!</Link>
+            </h1>
+        </div>
+    )
 }
